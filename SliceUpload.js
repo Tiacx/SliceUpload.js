@@ -1,7 +1,10 @@
-/**
- * 切片上传
+/*!
+ * JS 大文件切片上传
+ * version: 1.0.0-2018。08.29
+ * Requires ES6
+ * Copyright (c) 2018 Tiac
+ * https://github.com/Tiacx/SliceUpload.js
  */
-
 /**
  * 单文件上传
  */

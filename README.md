@@ -26,8 +26,8 @@ js 切片上传（大文件上传，灵活、可定制）
     });
 
     $('form').on('submit', function() {
-    	if($('#form2 input[type="file"]').length>0){
-	    	$('#form2 .progress-wrapper').show();
+    	if($('form input[type="file"]').length>0){
+	    	$('form .progress-wrapper').show();
 	        oSu2.upload();
         	return false;
     	}
