@@ -36,7 +36,7 @@ class SliceUpload
     // 上传操作
     upload()
     {
-    	let file = this.file.files[0];
+    	let file = this.file.files? this.file.files[0]:this.file;
 		this.totalsize = file.size;
 
 		if(this.end>this.totalsize) this.end = this.totalsize;
