@@ -5,9 +5,7 @@
     <title>JS切片上传</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -33,7 +31,7 @@
 						  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
 						</div>
 	  				</div>
-	  				<button type="submit" class="btn btn-default">上传并提交</button>
+	  				<button type="submit" class="btn btn-primary">上传并提交</button>
 	  			</form>
 			</div>
 			<div class="col-md-5 offset-md-1">
@@ -65,24 +63,8 @@
 						  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
 						</div>
 	  				</div>
-	  				<button type="submit" class="btn btn-default">上传并提交</button>
+	  				<button type="submit" class="btn btn-primary">上传并提交</button>
 	  			</form>
-			</div>
-		</div>
-		<div class="row" style="margin-top: 30px;">
-			<div class="col-md-12">
-				<div class="alert alert-primary" role="alert">
-					<button class="btn btn-link btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-					查看源码
-					</button>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-		        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne">
-	                <div class="dp-highlighter"><div class="bar"></div><ol start="1" class="dp-c"><li class="alt"><span><span>let&nbsp;oSu1&nbsp;=&nbsp;</span><span class="keyword">new</span><span>&nbsp;SliceUpload({&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;apiUrl:&nbsp;'slice.php',&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;file:&nbsp;document.querySelector('#form1&nbsp;input[type=<span class="string">"file"</span><span>]'),&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;chunk:&nbsp;2,&nbsp;<span class="comment">//&nbsp;切片大小，单位M（注意不要大于php.ini里设置的大小）</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;onProgress:&nbsp;<span class="keyword">function</span><span>(percent,&nbsp;file)&nbsp;{&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(file).parent().next().find('.progress-bar').attr('aria-valuenow',&nbsp;percent).width(percent&nbsp;+&nbsp;'%');&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;onComplete:&nbsp;<span class="keyword">function</span><span>(filename,&nbsp;file)&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(file).after('&lt;input&nbsp;type=<span class="string">"text"</span><span>&nbsp;name=</span><span class="string">"'+&nbsp;file.name&nbsp;+'"</span><span>&nbsp;</span><span class="keyword">class</span><span>=</span><span class="string">"form-control"</span><span>&nbsp;value=</span><span class="string">"'+&nbsp;filename&nbsp;+'"</span><span>&gt;');&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(file).parent().next().remove();&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(file).remove();&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$('#form1').trigger('submit');&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>});&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>let&nbsp;oSu2&nbsp;=&nbsp;<span class="keyword">new</span><span>&nbsp;SliceUploadMultiple({&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;apiUrl:&nbsp;'slice.php',&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;files:&nbsp;document.querySelectorAll('#form2&nbsp;input[type=<span class="string">"file"</span><span>]'),&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;chunk:&nbsp;2,&nbsp;<span class="comment">//&nbsp;切片大小，单位M（注意不要大于php.ini里设置的大小）</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;onProgress:&nbsp;<span class="keyword">function</span><span>(percent,&nbsp;file)&nbsp;{&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(file).parent().next().find('.progress-bar').attr('aria-valuenow',&nbsp;percent).width(percent&nbsp;+&nbsp;'%');&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;onComplete:&nbsp;<span class="keyword">function</span><span>(filename,&nbsp;file)&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(file).after('&lt;input&nbsp;type=<span class="string">"text"</span><span>&nbsp;name=</span><span class="string">"'+&nbsp;file.name&nbsp;+'"</span><span>&nbsp;</span><span class="keyword">class</span><span>=</span><span class="string">"form-control"</span><span>&nbsp;value=</span><span class="string">"'+&nbsp;filename&nbsp;+'"</span><span>&gt;');&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(file).parent().next().remove();&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(file).remove();&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;onAllComplete:&nbsp;<span class="keyword">function</span><span>(filename,&nbsp;file){&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$('#form2').trigger('submit');&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class=""><span>});&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>$('#form1').on('submit',&nbsp;<span class="keyword">function</span><span>()&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span><span>($('#form1&nbsp;input[type=</span><span class="string">"file"</span><span>]').length&gt;0){&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$('#form1&nbsp;.progress-wrapper').show();&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;oSu1.upload();&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span><span>&nbsp;</span><span class="keyword">false</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class=""><span>});&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>$('#form2').on('submit',&nbsp;<span class="keyword">function</span><span>()&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span><span>($('#form2&nbsp;input[type=</span><span class="string">"file"</span><span>]').length&gt;0){&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$('#form2&nbsp;.progress-wrapper').show();&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;oSu2.upload();&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span><span>&nbsp;</span><span class="keyword">false</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class=""><span>});&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span><span class="comment">PS：</span>&nbsp;</span></li><li class="alt"><span><span class="comment">1、通过配置类的onProgress、onComplete、onAllComplete&nbsp;可灵活处理“上传中”和“上传完成”的样式和提示；</span>&nbsp;</span></li><li class=""><span><span class="comment">2、调用&nbsp;upload&nbsp;的时机也完全可以自定义，你像本例一样，在&nbsp;submit&nbsp;时调用；亦可在&nbsp;file&nbsp;的&nbsp;onchange&nbsp;事件后直接调用，抑或额外加一个“上传”按钮调用，随你；</span>&nbsp;</span></li><li class="alt"><span><span class="comment">3、onComplete&nbsp;时注意要&nbsp;remove&nbsp;掉&nbsp;file，并添加一个&nbsp;input，用于后继提交、记录到数据库等操作。</span>&nbsp;</span></li></ol></div>
-	            </div>
 			</div>
 		</div>
 	</div>
@@ -92,12 +74,13 @@
 	    let oSu1 = new SliceUpload({
 	        apiUrl: 'slice.php',
 	        file: document.querySelector('#form1 input[type="file"]'),
-	        chunk: 2, // 切片大小，单位M（注意不要大于php.ini里设置的大小）
+	        chunk: 1, // 切片大小，单位M（注意不要大于php.ini里设置的大小）
 	        onProgress: function(percent, file) {
 	            $(file).parent().next().find('.progress-bar').attr('aria-valuenow', percent).width(percent + '%');
 	        },
-	        onComplete: function(filename, file) {
-	        	$(file).after('<input type="text" name="'+ file.name +'" class="form-control" value="'+ filename +'">');
+	        onComplete: function(responseText, file) {
+	        	let r = JSON.parse(responseText);
+	        	$(file).after('<input type="text" name="'+ file.name +'" class="form-control" value="'+ r.data.filename +'">');
 	            $(file).parent().next().remove();
 	        	$(file).remove();
 
@@ -108,16 +91,17 @@
 	    let oSu2 = new SliceUploadMultiple({
 	        apiUrl: 'slice.php',
 	        files: document.querySelectorAll('#form2 input[type="file"]'),
-	        chunk: 2, // 切片大小，单位M（注意不要大于php.ini里设置的大小）
+	        chunk: 1, // 切片大小，单位M（注意不要大于php.ini里设置的大小）
 	        onProgress: function(percent, file) {
 	            $(file).parent().next().find('.progress-bar').attr('aria-valuenow', percent).width(percent + '%');
 	        },
-	        onComplete: function(filename, file) {
-	        	$(file).after('<input type="text" name="'+ file.name +'" class="form-control" value="'+ filename +'">');
+	        onComplete: function(responseText, file) {
+	        	let r = JSON.parse(responseText);
+	        	$(file).after('<input type="text" name="'+ file.name +'" class="form-control" value="'+ r.data.filename +'">');
 	            $(file).parent().next().remove();
 	        	$(file).remove();
 	        },
-	        onAllComplete: function(filename, file){
+	        onAllComplete: function(responseText, file){
 	            $('#form2').trigger('submit');
 	        }
 	    });

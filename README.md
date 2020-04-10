@@ -8,20 +8,21 @@ js 切片上传（大文件上传，灵活、可定制）
 3. onComplete 时注意要 remove 掉 file，并添加一个 input，用于后继提交、记录到数据库等操作。 
 
 ##### 基础用法
-	let oSu = new SliceUploadMultiple({
+	let oSu2 = new SliceUploadMultiple({
         apiUrl: 'slice.php',
-        files: document.querySelectorAll('input[type="file"]'),
-        chunk: 2, // 切片大小，单位M（注意不要大于php.ini里设置的大小）
+        files: document.querySelectorAll('#form2 input[type="file"]'),
+        chunk: 1, // 切片大小，单位M（注意不要大于php.ini里设置的大小）
         onProgress: function(percent, file) {
             $(file).parent().next().find('.progress-bar').attr('aria-valuenow', percent).width(percent + '%');
         },
-        onComplete: function(filename, file) {
-        	$(file).after('<input type="text" name="'+ file.name +'" class="form-control" value="'+ filename +'">');
+        onComplete: function(responseText, file) {
+            let r = JSON.parse(responseText);
+            $(file).after('<input type="text" name="'+ file.name +'" class="form-control" value="'+ r.data.filename +'">');
             $(file).parent().next().remove();
-        	$(file).remove();
+            $(file).remove();
         },
-        onAllComplete: function(filename, file){
-            $('form').trigger('submit');
+        onAllComplete: function(responseText, file){
+            $('#form2').trigger('submit');
         }
     });
 

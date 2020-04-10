@@ -29,8 +29,8 @@ class SliceUpload
 		this.end        = this.start + this.chunk;
 		// 已上传数据大小
 		this.loaded     = 0;
-		// 接口回传的文件名
-		this.filename   = '';
+		// 接口回传信息（例如：文件名）
+		this.responseText   = '';
     }
 
     // 上传操作
@@ -49,14 +49,18 @@ class SliceUpload
 		};
 		xhr.onreadystatechange = (ev)=>{
 			if(xhr.readyState==4 && xhr.status==200){
-				this.filename = xhr.responseText;
+				this.responseText = xhr.responseText;
 				this.uploaded();
 			}
 		};
 
+    	// 是否最后一次
+    	let isTheLastTime = (this.end == this.totalsize? 1:0);
+
 		let blob = file.slice(this.start, this.end);
 		fd.append('filename', file.name);
 		fd.append('filedata', blob);
+		fd.append('isTheLastTime', isTheLastTime);
 		xhr.send(fd);
 	}
 
@@ -80,7 +84,7 @@ class SliceUpload
 		}
 		else
 		{
-			this.onComplete(this.filename, this.file);
+			this.onComplete(this.responseText, this.file);
 		}
 	}
 
@@ -93,10 +97,10 @@ class SliceUpload
 	}
 
 	// 上传完成回调
-	onComplete(filename, file)
+	onComplete(responseText, file)
 	{
 		if(this.options.onComplete){
-			this.options.onComplete(filename, file);
+			this.options.onComplete(responseText, file);
 		}
 	}
 }
@@ -140,8 +144,8 @@ class SliceUploadMultiple
 			this.oSus[i].onProgress = (percent, file)=>{
 				this.onProgress(percent, file);
 			};
-			this.oSus[i].onComplete = (filename, file)=>{
-				this.onComplete(filename, file);
+			this.oSus[i].onComplete = (responseText, file)=>{
+				this.onComplete(responseText, file);
 			};
 		}
 	}
@@ -155,24 +159,24 @@ class SliceUploadMultiple
 	}
 
 	// 上传完成回调
-	onComplete(filename, file)
+	onComplete(responseText, file)
 	{
 		if(this.options.onComplete){
-			this.options.onComplete(filename, file);
+			this.options.onComplete(responseText, file);
 		}
 
 		this.uploaded++;
 
 		if(this.uploaded == this.oSus.length){
-			this.onAllComplete(filename, file);
+			this.onAllComplete(responseText, file);
 		}
 	}
 
 	// 全部完成
-	onAllComplete(filename, file)
+	onAllComplete(responseText, file)
 	{
 		if(this.options.onAllComplete){
-			this.options.onAllComplete(filename, file);
+			this.options.onAllComplete(responseText, file);
 		}
 	}
 }
